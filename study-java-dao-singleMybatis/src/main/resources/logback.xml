@@ -32,7 +32,7 @@
 <!--     <logger name="org.springframework" level="INFO" /> -->
     
     <root>
-        <level value="INFO" />
+        <level value="DEBUG" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="rollingFileAppender" />
     </root>
