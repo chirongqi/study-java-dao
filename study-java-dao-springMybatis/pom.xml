@@ -8,10 +8,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>study-java-dao-mybatis</artifactId>
+	<artifactId>study-java-dao-springMybatis</artifactId>
 	<packaging>jar</packaging>
 
-	<name>study-java-dao-mybatis</name>
+	<name>study-java-dao-springMybatis</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
