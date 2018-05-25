@@ -37,6 +37,7 @@ public class MybatisTest {
         UserMapper userMapper = session.getMapper(UserMapper.class);
         User user = userMapper.selectByName("张三");
         System.out.println(user);
+        System.out.println(userMapper.selectByName("张三"));
         // --------------
         session.close();
     }
@@ -46,17 +47,19 @@ public class MybatisTest {
         SqlSession session = sqlSessionFactory.openSession();
         // ---------------
         UserMapper userMapper = session.getMapper(UserMapper.class);
-        List<User> list = userMapper.selectByAge3(12, 13);
+        // List<User> list = userMapper.selectByAge3(12, 13);
+        List<User> list = userMapper.selectByAge(12);
         for (User user : list) {
             System.out.println(user);
         }
+        list = userMapper.selectByAge2(12);
         // --------------
         session.close();
     }
 
-    // public static void main(String[] args) {
-    // MybatisTest test = new MybatisTest();
-    // test.brefore();
-    // test.findUserByName();
-    // }
+     public static void main(String[] args) {
+     MybatisTest test = new MybatisTest();
+     test.brefore();
+     test.findUserByName();
+     }
 }
