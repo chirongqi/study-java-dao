@@ -14,11 +14,6 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- 采用注释的方式配置bean -->   
-    <context:annotation-config />   
-    <!-- 配置要扫描的包 -->   
-    <!-- <context:component-scan base-package="com.chirq.study"/> -->
-
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<property name="driverClassName" value="${database.driverClass}"/>
 		<property name="url" value="${database.jdbcUrl}"/>
@@ -56,8 +51,8 @@
 		<property name="dataSource" ref="dataSource" />
         <property name="mapperLocations">
             <array>
-<!--                 <value>classpath*:sqlMapper/gateway/*Mapper.xml</value> -->
-                <value>classpath:com/chirq/study/mybatis/xml/dao/*Mapper.xml</value>
+                <value>classpath*:sqlMapper/*Mapper.xml</value>
+<!--                 <value>classpath:com/chirq/study/mybatis/xml/dao/*Mapper.xml</value> -->
             </array>
         </property>
         		
@@ -66,26 +61,26 @@
 <!-- 				<value>classpath:com/namibank/df/gateway/dao/*Mapper.xml</value> -->
 <!-- 			</list> -->
 <!-- 		</property> -->
-		<property name="typeAliasesPackage" value="com.chirq.study.bybatis.xml.entity" />
+		<property name="typeAliasesPackage" value="com.chirq.study.mybatis.xml.entity" />
 		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml" />
 	</bean>
 
 	
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.chirq.study.bybatis.xml.dao" />
+		<property name="basePackage" value="com.chirq.study.mybatis.xml.dao" />
 		<property name="sqlSessionFactoryBeanName" value="mybatisSqlSessionFactory" />
 	</bean> 
 	  	   
   	<!-- tx配置事务 start -->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-       <tx:attributes>
-           <tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
-           <tx:method name="del*" propagation="REQUIRED" rollback-for="Exception"/>
-           <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
-           <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
-       </tx:attributes>
-   </tx:advice>
+<!--     <tx:advice id="txAdvice" transaction-manager="transactionManager"> -->
+<!--        <tx:attributes> -->
+<!--            <tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!--            <tx:method name="del*" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!--            <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!--            <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/> -->
+<!--        </tx:attributes> -->
+<!--    </tx:advice> -->
    <!-- 第一个*代表所有的返回值类型;第二个*代表所有的类;第三个*代表类所有方法;最后一个..代表所有的参数 -->
    <!-- <aop:config>
         <aop:pointcut id="interceptorPointCuts" expression="execution(* com.chirq.study.bybatis.service.*.*(..))" />
@@ -95,7 +90,7 @@
    
        <!-- 扫描事务注解 -->
     <context:component-scan base-package="com.chirq.study.*">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>  
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 	
 </beans>

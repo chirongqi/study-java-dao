@@ -20,7 +20,7 @@ public class UserController {
         user.setAddress("海南省三沙市");
         user.setAge(41);
         user.setName("李四");
-        userMapper.insertSelective(user);
+//        userMapper.insertSelective(user);
         return JSONObject.toJSONString(userMapper.selectByName("张三"));
     }
 }
