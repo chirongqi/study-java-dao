@@ -11,7 +11,7 @@ import com.chirq.study.jdbc.transaction.entity.Payment;
 public class PaymentDao {
 
     // 保存数据
-    public int savePayment(Payment payment) {
+    public int savePayment(Payment payment) throws SQLException {
         Connection con = DBConnectionContextHolder.getDBConnection();
         PreparedStatement pst = null; // sql预编译语句
         String sql = "insert into  t_payment (user_id,pay_money,pay_time,pay_status,pay_msg) values(?, ?, ?,?,?)";
@@ -23,8 +23,6 @@ public class PaymentDao {
             pst.setInt(4, payment.getPayStatus());
             pst.setString(5, payment.getPayMsg());
             return pst.executeUpdate();// 执行增加，返回值为该操作影响的行数
-        } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             // 释放资源
             try {
@@ -34,7 +32,6 @@ public class PaymentDao {
                 e.printStackTrace();
             }
         }
-        return 0;
     }
 
 }

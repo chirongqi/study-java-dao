@@ -10,7 +10,7 @@ import com.chirq.study.jdbc.transaction.DBConnectionContextHolder;
 public class UserTransationsDao {
 
     // 保存数据
-    public int saveUser(User user) {
+    public int saveUser(User user) throws SQLException {
         Connection con = DBConnectionContextHolder.getDBConnection();
         PreparedStatement pst = null; // sql预编译语句
         String sql = "insert into  t_user (name,age,address) values(?, ?, ?)";// sql语句
@@ -21,8 +21,6 @@ public class UserTransationsDao {
             pst.setString(3, user.getAddress());
             int i = pst.executeUpdate();// 执行增加，返回值为该操作影响的行数
             return i;
-        } catch (SQLException e) {
-            e.printStackTrace();
         } finally {
             // 释放资源
             try {
@@ -32,6 +30,5 @@ public class UserTransationsDao {
                 e.printStackTrace();
             }
         }
-        return 0;
     }
 }

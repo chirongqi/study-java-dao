@@ -35,16 +35,19 @@ public class TransactionService {
     private void brefor() throws SQLException {
         Connection connection = DBConnectionPool.getConnection();
         DBConnectionContextHolder.setDBConnection(connection);
+        System.out.println("业务处理开始，开启连接");
     }
 
     private void after() throws SQLException {
         DBConnectionContextHolder.getDBConnection().commit();
+        System.out.println("业务处理完成，提交事务");
     }
 
     private void release() {
         // 释放资源
         try {
             DBConnectionContextHolder.getDBConnection().close();// 关闭连接
+            System.out.println("业务处理完成，释放资源");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,6 +56,7 @@ public class TransactionService {
     private void exception() {
         try {
             DBConnectionContextHolder.getDBConnection().rollback();
+            System.out.println("业务处理异常，回滚");
         } catch (SQLException e) {
             e.printStackTrace();
         }
