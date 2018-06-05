@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.chirq.study.jdbc.DBConnectionContextHolder;
 import com.chirq.study.jdbc.simplejdbc.entity.User;
-import com.chirq.study.jdbc.transaction.DBConnectionContextHolder;
 
 public class UserTransationsDao {
 
     // 保存数据
-    public int saveUser(User user) throws SQLException {
+    public int saveUser(User user) {
         Connection con = DBConnectionContextHolder.getDBConnection();
         PreparedStatement pst = null; // sql预编译语句
         String sql = "insert into  t_user (name,age,address) values(?, ?, ?)";// sql语句
@@ -21,6 +21,8 @@ public class UserTransationsDao {
             pst.setString(3, user.getAddress());
             int i = pst.executeUpdate();// 执行增加，返回值为该操作影响的行数
             return i;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         } finally {
             // 释放资源
             try {

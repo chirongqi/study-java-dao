@@ -5,17 +5,21 @@ import java.util.Date;
 
 import com.chirq.study.jdbc.simplejdbc.entity.User;
 import com.chirq.study.jdbc.transaction.entity.Payment;
-import com.chirq.study.jdbc.transaction.service.TransactionService;
+import com.chirq.study.jdbc.transaction.proxy.TransactionSession;
+import com.chirq.study.jdbc.transaction.service.UserBusinessService;
+import com.chirq.study.jdbc.transaction.service.impl.UserBusinessServiceImpl;
 
 import junit.framework.TestCase;
 
 public class TransactionTest extends TestCase {
-    TransactionService transactionService = new TransactionService();
+
+    UserBusinessService userBusinessService = TransactionSession.getService(UserBusinessService.class, new UserBusinessServiceImpl());
 
     public void testSaveUserAndPayment() {
+        System.out.println(userBusinessService.getClass().getName());
         User user = new User();
         user.setAddress("事务测试");
-        user.setAge(11);
+        user.setAge(1);
         user.setName("事务");
 
         Payment payment = new Payment();
@@ -24,6 +28,6 @@ public class TransactionTest extends TestCase {
         payment.setPayStatus(1);
         payment.setPayTime(new Date());
         payment.setUserId(1);
-        transactionService.saveUserAndPayment(user, payment);
+        userBusinessService.saveUserAndPayment(user, payment);
     }
 }

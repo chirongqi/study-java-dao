@@ -25,7 +25,7 @@ public class DBConnectionPool {
         dataSource.setValidationQuery("");
         dataSource.setTestWhileIdle(true);
         dataSource.setTestOnReturn(false);
-        dataSource.setDefaultAutoCommit(false);
+        dataSource.setDefaultAutoCommit(true);
     }
 
     public static Connection getConnection() {
