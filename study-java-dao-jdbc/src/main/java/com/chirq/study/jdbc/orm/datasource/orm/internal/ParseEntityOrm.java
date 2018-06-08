@@ -51,7 +51,6 @@ final class ParseEntityOrm {
         ormVo.setClassName(clazz.getName());
         // 实体的属性与表字段的映射
         Map<String, String> fieldKeyColVal = this.parseMethodAnnotation(clazz);
-        // 将主键字段排到最后
         fieldKeyColVal.remove(ormVo.getPriFieldKey());
         fieldKeyColVal.put(ormVo.getPriFieldKey(), ormVo.getPriColumnKey());
         // System.out.println("fieldKeyColVal : " + fieldKeyColVal);
@@ -250,7 +249,6 @@ final class ParseEntityOrm {
         }
         return fieldMap;
     }
-
 
     /**
      * 

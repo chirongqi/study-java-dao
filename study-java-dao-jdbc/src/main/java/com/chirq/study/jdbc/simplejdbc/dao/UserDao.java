@@ -119,6 +119,7 @@ public class UserDao {
             for (int i = 1; i <= len; i++) {
                 System.out.println("列名=" + rd.getColumnName(i));
                 System.out.println("类型=" + rd.getColumnTypeName(i));
+                System.out.println("java类型=" + rd.getColumnClassName(i));
             }
         } catch (SQLException e) {
             e.printStackTrace();

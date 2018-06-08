@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import com.chirq.study.jdbc.DBConnectionContextHolder;
+import com.chirq.study.jdbc.DBConnectionPool;
 import com.chirq.study.jdbc.transaction.entity.Payment;
 
 public class PaymentDao {
@@ -13,6 +14,9 @@ public class PaymentDao {
     // 保存数据
     public int savePayment(Payment payment) {
         Connection con = DBConnectionContextHolder.getDBConnection();
+        if (con == null) {
+            con = DBConnectionPool.getConnection();
+        }
         PreparedStatement pst = null; // sql预编译语句
         String sql = "insert into  t_payment (user_id,pay_money,pay_time,pay_status,pay_msg) values(?, ?, ?,?,?)";
         try {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.chirq.study.mybatis.xml.dao.UserMapper;
 import com.chirq.study.mybatis.xml.entity.User;
+import com.chirq.study.mybatis.xml.service.UserTransactionService;
 
 @RestController
 @RequestMapping("test")
@@ -14,13 +15,28 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    UserTransactionService userTransactionService;
+
     @RequestMapping(value = "saveUser")
     public String saveUser() {
         User user = new User();
         user.setAddress("海南省三沙市");
         user.setAge(41);
         user.setName("李四");
-//        userMapper.insertSelective(user);
+        // userMapper.insertSelective(user);
         return JSONObject.toJSONString(userMapper.selectByName("张三"));
     }
+
+    @RequestMapping(value = "saveAndDelete")
+    public String saveAndDelete() {
+        User user = new User();
+        user.setAddress("spring事物");
+        user.setAge(41);
+        user.setName("spring事物");
+        long id = 2;
+        userTransactionService.saveAndDelete(user, id);
+        return "success";
+    }
+
 }

@@ -19,8 +19,6 @@ import com.chirq.study.jdbc.orm.datasource.orm.internal.OrmCoreAccessor;
  */
 public class OrmDispatcher {
 
-    // private FKLogger logger = FKLoggerFactory.getLogger(OrmDispatcher.class);
-
     private OrmDispatcher() {
         // 私有化构造方法
     }

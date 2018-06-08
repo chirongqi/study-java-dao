@@ -41,9 +41,9 @@
   </select>
 
   
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     DELETE FROM t_user
-    WHERE id = #{id,jdbcType=INTEGER}
+    WHERE id = #{id,jdbcType=BIGINT}
   </delete>
 
   <insert id="insert" parameterType="com.chirq.study.mybatis.xml.entity.User" >

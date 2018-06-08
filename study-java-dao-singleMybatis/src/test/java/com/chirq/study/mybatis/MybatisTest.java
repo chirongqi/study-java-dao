@@ -17,7 +17,7 @@ import com.chirq.study.mybatis.mapper.UserMapper;
 public class MybatisTest {
 
     private SqlSessionFactory sqlSessionFactory;
-
+    
     @Before
     public void brefore() {
         String resource = "mybatis/mybatis-config.xml";
