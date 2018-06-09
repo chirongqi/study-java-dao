@@ -238,6 +238,7 @@ public final class OrmConnectionCallback<T> implements ConnectionCallback<T> {
             Object value = null;
             for (int count = 0, size = list.size(); count < size; count++) {
                 // value = resultSet.getObject(resCount++); // sql查询结果
+            	// value = resultSet.getObject("name");
                 value = resultSet.getObject(entity.getClass().getDeclaredField(list.get(count)).getAnnotation(Column.class).name());
                 if (value == null) {
                     continue;

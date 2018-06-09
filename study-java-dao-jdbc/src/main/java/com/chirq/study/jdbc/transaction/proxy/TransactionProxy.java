@@ -32,8 +32,8 @@ public class TransactionProxy<T> implements InvocationHandler {
 
             this.after();
         } catch (Exception e) {
-            this.exception();
             e.printStackTrace();
+            this.exception();
         } finally {
             this.release();
         }

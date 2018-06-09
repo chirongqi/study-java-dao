@@ -14,7 +14,7 @@ public class TransactionProxyFactory<T> {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public T newInstance(Class<T> daoInterface, Object subject) {
+    public static <T> T getService(Class<T> daoInterface, Object subject) {
         return (T) Proxy.newProxyInstance(daoInterface.getClassLoader(), new Class[] { daoInterface }, new TransactionProxy<T>(subject));
     }
 }

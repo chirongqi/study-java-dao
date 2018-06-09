@@ -145,11 +145,13 @@ public class UserDao {
             delPst = con.prepareStatement(deleteSql);
             delPst.setString(1, name);
             delPst.executeUpdate();
+            
             savePst = con.prepareStatement(saveSql);
             savePst.setString(1, user.getName());
             savePst.setInt(2, user.getAge());
             savePst.setString(3, user.getAddress());
             savePst.executeUpdate();// 执行增加，返回值为该操作影响的行数
+            
             con.commit();
         } catch (SQLException e) {
             try {
