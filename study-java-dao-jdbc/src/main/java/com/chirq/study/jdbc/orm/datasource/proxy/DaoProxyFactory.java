@@ -15,7 +15,7 @@ public class DaoProxyFactory<T> {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public T newInstance(Class<T> daoInterface) {
+    public static <T> T getDao(Class<T> daoInterface) {
         return (T) Proxy.newProxyInstance(daoInterface.getClassLoader(), new Class[] { daoInterface }, new DaoProxy<T>());
     }
 }

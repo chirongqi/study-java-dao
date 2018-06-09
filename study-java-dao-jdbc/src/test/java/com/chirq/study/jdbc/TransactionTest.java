@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.chirq.study.jdbc.simplejdbc.entity.User;
 import com.chirq.study.jdbc.transaction.entity.Payment;
-import com.chirq.study.jdbc.transaction.proxy.TransactionSession;
+import com.chirq.study.jdbc.transaction.proxy.TransactionProxyFactory;
 import com.chirq.study.jdbc.transaction.service.UserBusinessService;
 import com.chirq.study.jdbc.transaction.service.impl.UserBusinessServiceImpl;
 
@@ -13,7 +13,7 @@ import junit.framework.TestCase;
 
 public class TransactionTest extends TestCase {
 
-    UserBusinessService userBusinessService = TransactionSession.getService(UserBusinessService.class, new UserBusinessServiceImpl());
+    UserBusinessService userBusinessService = TransactionProxyFactory.getService(UserBusinessService.class, new UserBusinessServiceImpl());
 
     
     public void testSaveUserAndPaymentNotProxy() {

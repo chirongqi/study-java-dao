@@ -21,6 +21,16 @@ public class SimpleJdbcTest extends TestCase {
         System.out.println(user);
     }
 
+    public void testInsertUser() {
+    	User user = new User();
+    	user.setAddress("海南省三沙市");
+    	user.setAge(41);
+    	user.setName("李四");
+    	int res = userDao.saveUser(user);
+    	System.out.println(res);
+    	assertEquals(1, res);
+    }
+    
     public void testGetAll() {
         List<User> list = userDao.getAll();
         for (User user : list) {
@@ -28,15 +38,6 @@ public class SimpleJdbcTest extends TestCase {
         }
     }
 
-    public void testInsertUser() {
-        User user = new User();
-        user.setAddress("海南省三沙市");
-        user.setAge(41);
-        user.setName("李四");
-        int res = userDao.saveUser(user);
-        System.out.println(res);
-        assertEquals(1, res);
-    }
 
     public void testfindColumnsInfo() {
         userDao.findColumnsInfo();
