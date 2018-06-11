@@ -55,12 +55,6 @@
 <!--                 <value>classpath:com/chirq/study/mybatis/xml/dao/*Mapper.xml</value> -->
             </array>
         </property>
-        		
-<!-- 		<property name="mapperLocations"> -->
-<!-- 			<list> -->
-<!-- 				<value>classpath:com/namibank/df/gateway/dao/*Mapper.xml</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
 		<property name="typeAliasesPackage" value="com.chirq.study.mybatis.xml.entity" />
 		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml" />
 	</bean>
