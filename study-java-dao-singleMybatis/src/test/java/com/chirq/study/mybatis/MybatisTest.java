@@ -88,6 +88,5 @@ public class MybatisTest {
     public static void main(String[] args) {
         MybatisTest test = new MybatisTest();
         test.brefore();
-        test.findUserByName();
     }
 }

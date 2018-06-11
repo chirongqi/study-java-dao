@@ -12,10 +12,9 @@ import com.chirq.study.mybatis.xml.service.UserTransactionService;
 @RestController
 @RequestMapping("test")
 public class UserController {
+    
     @Autowired
     UserMapper userMapper;
-
-    @Autowired
     UserTransactionService userTransactionService;
 
     @RequestMapping(value = "saveUser")
@@ -25,7 +24,8 @@ public class UserController {
         user.setAge(41);
         user.setName("李四");
         // userMapper.insertSelective(user);
-        return JSONObject.toJSONString(userMapper.selectByName("张三"));
+        User select = userMapper.selectByName("张三");
+        return JSONObject.toJSONString(select);
     }
 
     @RequestMapping(value = "saveAndDelete")
