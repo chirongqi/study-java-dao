@@ -12,6 +12,7 @@
 		<module>study-java-dao-jdbc</module>
 		<module>study-java-dao-singleMybatis</module>
 		<module>study-java-dao-springMybatis</module>
+		<module>study-java-dao-springTkMybatis</module>
 	</modules>
 
 	<properties>
