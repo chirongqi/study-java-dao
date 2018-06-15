@@ -48,7 +48,7 @@ public class SimpleJdbcTest extends TestCase {
         user.setAddress("上海市");
         user.setAge(32);
         user.setName("王五");
-        userDao.deleteAndSave("王五", user);
+        userDao.deleteAndSave("李四", user);
     }
 
     /**

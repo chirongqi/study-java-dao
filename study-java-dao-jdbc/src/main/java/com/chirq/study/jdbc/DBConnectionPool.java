@@ -19,13 +19,6 @@ public class DBConnectionPool {
         dataSource.setMinIdle(10);
         dataSource.setMaxActive(20);
         dataSource.setMaxWait(120);
-
-        dataSource.setTimeBetweenEvictionRunsMillis(60000);
-        dataSource.setMinEvictableIdleTimeMillis(30000);
-        dataSource.setValidationQuery("");
-        dataSource.setTestWhileIdle(true);
-        dataSource.setTestOnReturn(false);
-        dataSource.setDefaultAutoCommit(true);
     }
 
     public static Connection getConnection() {
