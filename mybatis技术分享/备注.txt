@@ -2,4 +2,9 @@
 
 查看例子的时候，先看下JAR包，尽量减少干扰
 
+
+orm理论概念
+
+自己开发ORM开发完成后，接下来看下优秀的持久层框架，对比下，学习下
+
 spring+mybatis 先看jar包，然后看例子 跟原生使用mybatis有啥区别 不用获取sqlSession在获取mapper,然后手动关闭session

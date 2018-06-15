@@ -2,7 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<settings>
-		<!-- 全局映射器启用缓存 -->
+	    <!-- 一级缓存 SESSION|STATEMENT -->
+        <setting name="localCacheScope" value="SESSION" />	
+		<!-- 二级缓存 -->
 		<setting name="cacheEnabled" value="false" />
 <!-- 		<setting name="cacheEnabled" value="true"/> -->
 		<!-- 查询时，关闭关联对象即时加载以提高性能 -->
@@ -22,6 +24,8 @@
 		<setting name="defaultStatementTimeout" value="25000" />
 		<!-- 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。 -->
 		<setting name="mapUnderscoreToCamelCase" value="true" />
+<!-- 		<setting name="proxyFactory" value="CGLIB"/> -->
+         <setting name="logImpl" value="SLF4J"/>
 	</settings>
 
 	 <typeAliases>

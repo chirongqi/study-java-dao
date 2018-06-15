@@ -17,7 +17,7 @@ import com.chirq.study.mybatis.mapper.UserMapper;
 public class MybatisTest {
 
     private SqlSessionFactory sqlSessionFactory;
-    
+
     @Before
     public void brefore() {
         String resource = "mybatis/mybatis-config.xml";
@@ -38,6 +38,19 @@ public class MybatisTest {
         User user = userMapper.selectByName("张三");
         System.out.println(user);
         // --------------
+        session.close();
+    }
+
+    @Test
+    public void selectBySearch() {
+        SqlSession session = sqlSessionFactory.openSession();
+        UserMapper userMapper = session.getMapper(UserMapper.class);
+        User user = new User();
+        user.setName("张三");
+        List<User> list = userMapper.selectBySearch(user);
+        for (User u : list) {
+            System.out.println(u);
+        }
         session.close();
     }
 

@@ -44,6 +44,12 @@
     FROM t_user WHERE name = #{name}
   </select>
 
+  <select id="selectBySearch" resultMap="BaseResultMap" parameterType="com.chirq.study.mybatis.entity.User" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM t_user
+    <include refid="listWhere" />
+  </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     DELETE FROM t_user

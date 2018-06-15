@@ -24,6 +24,7 @@ public interface UserMapper {
 
     int updateByPrimaryKeySelective(User user);
 
+    List<User> selectBySearch(User user);
     /**
      * 
      * <b>方法名</b>：selectByAge<br>
