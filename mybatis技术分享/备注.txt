@@ -1,10 +1,10 @@
-����JDBC��ʱ��Ҫ˵���£�JAVA��ţ����ָ�ƣ�Ȩ����ϰ�ˣ����Ǻ��˽������أ����Ǵ����һ��ѧϰ��
+讲到JDBC的时候，要说明下，JAVA大牛了如指掌，权当复习了，不是很了解这块的呢，我们大家在一起学习下
 
-�鿴���ӵ�ʱ���ȿ���JAR�����������ٸ���
+查看例子的时候，先看下JAR包，尽量减少干扰
 
 
-orm���۸���
+orm理论概念
 
-�Լ�����ORM������ɺ󣬽�������������ĳ־ò��ܣ��Ա��£�ѧϰ��
+自己开发ORM开发完成后，接下来看下优秀的持久层框架，对比下，学习下
 
-spring+mybatis �ȿ�jar����Ȼ������ ��ԭ��ʹ��mybatis��ɶ���� ���û�ȡsqlSession�ڻ�ȡmapper,Ȼ���ֶ��ر�session
+spring+mybatis 先看jar包，然后看例子 跟原生使用mybatis有啥区别 不用获取sqlSession在获取mapper,然后手动关闭session
